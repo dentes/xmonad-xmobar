@@ -8,7 +8,7 @@
 URxvt*geometry:                53x20
 URxvt*font:  xft:Inconsolata:pixelsize=10
 URxvt*depth:                32
-URxvt*background:            [85]#000000
+URxvt*background:            [60]#000000
 URxvt*foreground:            [100]#ffffff
 URxvt*borderless: 1
 URxvt*scrollBar:            false
