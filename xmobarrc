@@ -1,0 +1,20 @@
+Config { font = "-misc-fixed-*-*-*-*-12-*-*-*-*-*-*"
+       , bgColor = "black"
+	   , fgColor = "grey"
+	   , position = Top
+	   , lowerOnStart = True
+	   , commands  =[ Run Weather "YSSY" ["-t","<tempC>C","-L","18","-H","25","--normal","green","--high","red","--low","lightblue"] 36000
+	                , Run Network "eth0" ["-L","0","-H","32","-l", "green", "--normal","orange","--high","red"] 40
+                              , Run Cpu ["<cpu0>/<cpu1>","-L","3","-H","50","-l","green","--normal","orange","--high","red"]   40
+                              , Run Cpu ["<cpu0>","-L","3","-H","50","-l","green","--normal","orange","--high","red"]  40
+                              , Run Memory ["-t","Mem: <usedratio>%", "-l", "green", "--normal","orange","--high","red"] 40
+			      , Run Date "%a %b %_d %H:%M" "date" 60
+                              , Run CpuFreq ["-t","Freq: <cpu0> | <cpu1> GHz","-L","0","-H","2","-l","green","-n","orange","-h","red"] 50
+                              , Run StdinReader
+							  , Run Com "uname" ["-s","-r"] "" 36000
+							  , Run Battery ["-L","50","-H","75","--high","green","--normal","yellow","--low","red"] 10
+	                ]
+       , sepChar  = "%"
+	   , alignSep = "}{"
+	   , template = "%StdinReader% | %cpu% | %memory% | %wlan0% | }{ %YSSY% | %battery% | <fc=#ee9a00>%date%</fc>"
+	   }
