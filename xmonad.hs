@@ -15,7 +15,7 @@ import qualified Data.Map as M
 myTerminal			=	"xterm"
 myBorderWidth		=	2
 myModMask			=	mod4Mask
-myWorkspaces		=	["home","web","vim","chat"]
+myWorkspaces		=	["home","web","vim","music","chat"]
 myNormalBorderColor		=	"#161616"
 myFocusedBorderColor	=	"#323232"
  
