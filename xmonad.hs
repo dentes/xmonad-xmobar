@@ -56,7 +56,7 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	]
 
 	-- Union Additional Keys to the default configuration.
-newKeys x = myKeys x `M.Union` keys defaultConfig x
+newKeys x = myKeys x `M.union` keys defaultConfig x
 	
 	 
 	-- ++
