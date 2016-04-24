@@ -5,17 +5,17 @@ import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.ToggleLayouts
 import XMonad.Layout.Spacing
-import XMonad.Util.EZConfig 			-- new
-import Graphics.X11.ExtraTypes.XF86		-- new
-import Data.Ratio ((%))					-- new
-import System.IO						-- new
+--import XMonad.Util.EZConfig 			-- new
+--import Graphics.X11.ExtraTypes.XF86		-- new
+--import Data.Ratio ((%))					-- new
+--import System.IO						-- new
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
  
 myTerminal			=	"xterm"
 myBorderWidth		=	2
 myModMask			=	mod4Mask
-myWorkspaces		=	["ZSH","VIM","WEB","IRC"]
+myWorkspaces		=	["home","web","vim","chat"]
 myNormalBorderColor		=	"#161616"
 myFocusedBorderColor	=	"#323232"
  
@@ -29,13 +29,14 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 		--((modm,					xK_space	), spawn "dmenu_run -fn 'Terminus:bold:size=16' -nb '#000' -nf '#868686' -sb '#868686' -sf '#fff'"),	-- Init dmenu_run
 		--((modm, 				xK_Return	), spawn "terminator") -- spawn terminator terminal 
 		((modm,					xK_slash	), spawn $ XMonad.terminal conf),	-- Init a terminal
+		((modm,					xK_Return	), spawn $ XMonad.terminal conf),	-- Init a terminal
 		((modm,					xK_Tab		), windows W.focusDown),			-- Move focus to the next window
 		((modm .|. shiftMask,	xK_Tab		), sendMessage NextLayout),			-- Rotate through the available layout algorithms
 		((modm,					xK_n		), prevWS),							--
 		((modm,					xK_o		), nextWS),							--
 		((modm .|. shiftMask,	xK_n		), shiftToPrev >> prevWS),			-- 
 		((modm .|. shiftMask,	xK_o		), shiftToNext >> nextWS),			-- 
-		((modm,					xK_n		), refresh),						-- Resize viewed windows to the correct size
+		((modm,					xK_r		), refresh),						-- Resize viewed windows to the correct size
 		((modm,					xK_j		), windows W.focusDown),			-- Move focus to the next window
 		((modm,					xK_k		), windows W.focusUp),				-- Move focus to the previous window
 		((modm,					xK_m		), windows W.focusMaster),			-- Move focus to the master window
