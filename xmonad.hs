@@ -4,8 +4,9 @@ import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.ToggleLayouts
+--import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spacing
---import XMonad.Util.EZConfig 			-- new
+import XMonad.Util.EZConfig 			-- new
 --import Graphics.X11.ExtraTypes.XF86		-- new
 --import Data.Ratio ((%))					-- new
 --import System.IO						-- new
