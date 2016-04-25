@@ -98,7 +98,7 @@ myLayout =
 	where
 		tiled		=	Tall nmaster delta ratio	-- default tiling algorithm partitions the screen into two panes
 		nmaster		=	1					-- The default number of windows in the master pane
-		ratio		=	3/5					-- Default proportion of screen occupied by master pane
+		ratio		=	2/3					-- Default proportion of screen occupied by master pane
 		delta		=	3/100				-- Percent of screen to increment by when resizing panes
  
 --------------------------------------------------------------------------------------
@@ -148,5 +148,8 @@ myConfig = defaultConfig
 		keys				=	myKeys,
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
+		handleEventHook 	= mconcat
+                				[ docksEventHook,
+                          			  handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
 		manageHook			=	myManageHook
 	}
