@@ -150,6 +150,6 @@ myConfig = defaultConfig
 		layoutHook			=	myLayout,
 		handleEventHook 	= mconcat
                 				[ docksEventHook,
-                          			  handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
+                          			  handleEventHook defaultConfig ], -- fixes initial overlap of xmobar
 		manageHook			=	myManageHook
 	}
