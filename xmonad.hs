@@ -128,7 +128,10 @@ myPP = xmobarPP
 			ppLayout			=	xmobarColor "#aaaaaa" "",
 			ppTitle			=	xmobarColor "#ffffff" "",
 			ppSep			=	" : ",
-			ppWsSep			=	" "
+			ppWsSep			=	" ",
+			handleEventHook 	= mconcat
+                				[ docksEventHook,
+                          			  handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
 		}
 
 --------------------------------------------------------------------------------------
@@ -148,8 +151,5 @@ myConfig = defaultConfig
 		keys				=	myKeys,
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
-		handleEventHook 	= mconcat
-                				[ docksEventHook,
-                          			  handleEventHook defaultConfig ], -- fixes initial overlap of xmobar
 		manageHook			=	myManageHook
 	}
