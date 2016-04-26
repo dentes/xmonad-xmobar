@@ -149,5 +149,5 @@ myConfig = defaultConfig
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
 		manageHook			=	manageDocks <+> myManageHook,
-		handleEventHook 	= [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
+		handleEventHook 	= mconcat [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
 	}
