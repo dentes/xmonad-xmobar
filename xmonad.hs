@@ -19,6 +19,8 @@ myModMask			=	mod4Mask
 myWorkspaces		=	["home","web","vim","music","chat"]
 myNormalBorderColor		=	"#161616"
 myFocusedBorderColor	=	"#323232"
+
+mconcat			=	[ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
  
 --------------------------------------------------------------------------------------
 -- Key bindings
@@ -128,10 +130,7 @@ myPP = xmobarPP
 			ppLayout			=	xmobarColor "#aaaaaa" "",
 			ppTitle			=	xmobarColor "#ffffff" "",
 			ppSep			=	" : ",
-			ppWsSep			=	" ",
-			handleEventHook 	= mconcat
-                				[ docksEventHook,
-                          			  handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
+			ppWsSep			=	" "
 		}
 
 --------------------------------------------------------------------------------------
@@ -151,5 +150,6 @@ myConfig = defaultConfig
 		keys				=	myKeys,
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
-		manageHook			=	myManageHook
+		manageHook			=	manageDocks <+> myManageHook,
+		handleEventHook 	= mconcat
 	}
