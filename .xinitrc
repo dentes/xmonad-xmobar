@@ -1,20 +1,17 @@
 # set cursor
 xsetroot -cursor_name left_ptr &
 
-# set screen resolution
-# xrandr --output Virtual1 --mode 1440x900 &
-# xrandr --output --auto &
-xrandr --output Virtual1 --mode 1440x900 &
-
-# start xmobar
-# exec xmobar
-
-# for xmonad;  -c gives soft shadow around windows / devilspie is for window transparaceny
-xcompmgr -c &
-# devilspie -a &
-
-# Background Image
+# background image
 sh $HOME/.fehbg &
+
+# screen resolution
+# test current setting by $ xrandr
+# set auto resultuion by $ xrandr --output Virtual1 --auto
+xrandr --output Virtual1 --mode 1920x1200 &
+
+# compositing manager
+xcompmgr &
 
 # start xmonad
 exec xmonad
+
