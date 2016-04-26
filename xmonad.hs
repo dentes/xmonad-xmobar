@@ -13,7 +13,7 @@ import XMonad.Util.EZConfig 			-- new
 import qualified XMonad.StackSet as W
 import qualified Data.Map as M
  
-myTerminal			=	"xterm"
+myTerminal			=	"urxvt"
 myBorderWidth		=	2
 myModMask			=	mod4Mask
 myWorkspaces		=	["home","web","vim","music","chat"]
@@ -148,6 +148,6 @@ myConfig = defaultConfig
 		keys				=	myKeys,
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
-		manageHook			=	myManageHook
-		--handleEventHook 	= mconcat [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
+		manageHook			=	myManageHook,
+		handleEventHook 	= mconcat [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
 	}
