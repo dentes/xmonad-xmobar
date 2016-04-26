@@ -57,12 +57,12 @@ myKeys conf@(XConfig {XMonad.modMask = modm}) = M.fromList $
 	]
 	
 	--shift to specific workspace	 
-	++
+	-- ++
     --mod-[1..9], Switch to workspace N
     --mod-shift-[1..9], Move client to workspace N
-    [((m .|. modMask, k), windows $ f i)
-        | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
-        , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
+    --[((m .|. modMask, k), windows $ f i)
+    --    | (i, k) <- zip (XMonad.workspaces conf) [xK_1 .. xK_9]
+    --    , (f, m) <- [(W.greedyView, 0), (W.shift, shiftMask)]]
 
 -- Union Additional Keys to the default configuration.
 newKeys x = myKeys x `M.union` keys defaultConfig x
