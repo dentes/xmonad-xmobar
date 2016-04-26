@@ -92,7 +92,7 @@ myMouseBindings (XConfig {XMonad.modMask = mod4Mask}) = M.fromList $
 
 myLayout =
 	avoidStruts $
-	spacing 4 $
+	spacing 0 $
 	toggleLayouts Full $
 	tiled ||| Mirror tiled
 	where
