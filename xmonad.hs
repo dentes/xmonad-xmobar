@@ -14,7 +14,7 @@ import qualified XMonad.StackSet as W
 import qualified Data.Map as M
  
 myTerminal			=	"urxvt"
-myBorderWidth		=	2
+myBorderWidth		=	1
 myModMask			=	mod4Mask
 myWorkspaces		=	["home","web","vim","music","chat"]
 myNormalBorderColor		=	"#161616"
