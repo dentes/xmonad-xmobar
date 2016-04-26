@@ -4,6 +4,7 @@ import XMonad.Actions.CycleWS
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks
 import XMonad.Layout.ToggleLayouts
+import XMonad.Hooks.ManageHelpers (composeOne, isFullscreen, isDialog,  doFullFloat, doCenterFloat)
 --import XMonad.Layout.PerWorkspace
 import XMonad.Layout.Spacing
 import XMonad.Util.EZConfig 			-- new
@@ -112,13 +113,24 @@ myLayout =
 -- Window rules
 --------------------------------------------------------------------------------------
 
-myManageHook = composeAll
-	[
+--import XMonad.Hooks.ManageHelpers (composeOne, isFullscreen, isDialog,  doFullFloat, doCenterFloat)
+myManageHook = composeAll. concat $
+                [ [ className =? c --> doCenterFloat| c <- floats]
+                , [ resource =? r --> doIgnore | r <- ignore]
+                , [ resource =? "gecko" --> doF (W.shift "net") ]
+                , [ isFullscreen --> doFullFloat]
+                , [ isDialog --> doCenterFloat]]
+ where floats = ["sdlpal", "MPlayer", "Gimp", "qemu-system-x86_64", "Gnome-typing-monitor", "Vlc", "Dia", "DDMS", "Audacious", "Wine"]
+       ignore = []
+
+
+--myManageHook = composeAll
+--	[
 		--className	=?	"MPlayer"			-->	doFloat,
 		--className	=?	"Gimp"				-->	doFloat,
 		--resource	=?	"desktop_window"	-->	doIgnore,
 		--resource	=?	"kdesktop"			-->	doIgnore
-	]
+--	]
  
 --------------------------------------------------------------------------------------
 -- Statusbar
@@ -156,5 +168,5 @@ myConfig = defaultConfig
 		mouseBindings		=	myMouseBindings,
 		layoutHook			=	myLayout,
 		manageHook			=	myManageHook,
-		handleEventHook 	= mconcat [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
+		handleEventHook 	=	mconcat [ docksEventHook, handleEventHook defaultConfig ] -- fixes initial overlap of xmobar
 	}
